@@ -1,0 +1,5 @@
+{
+  "version": "0.1.1",
+  "build": "mobile-gyro-controls-prototype",
+  "engine": "Godot 4.7"
+}

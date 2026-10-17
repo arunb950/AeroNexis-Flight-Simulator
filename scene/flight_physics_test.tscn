@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://script/flight/aircraft_physics.gd" id="1_physics"]
+[ext_resource type="Script" path="res://script/flight/flight_controls.gd" id="2_controls"]
+[ext_resource type="Script" path="res://script/flight/mobile_flight_hud.gd" id="3_hud"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_body"]
+size = Vector3(2.0, 0.7, 5.5)
+[sub_resource type="BoxMesh" id="BoxMesh_placeholder"]
+size = Vector3(2.0, 0.7, 5.5)
+
+[node name="FlightPhysicsTest" type="Node3D"]
+
+[node name="Aircraft" type="RigidBody3D" parent="."]
+position = Vector3(0, 100, 0)
+mass = 1111.0
+linear_damp = 0.03
+angular_damp = 0.5
+script = ExtResource("1_physics")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Aircraft"]
+shape = SubResource("BoxShape3D_body")
+[node name="FlightControls" type="Node" parent="Aircraft"]
+script = ExtResource("2_controls")
+[node name="VisualPlaceholder" type="MeshInstance3D" parent="Aircraft"]
+mesh = SubResource("BoxMesh_placeholder")
+
+[node name="MobileHUD" type="CanvasLayer" parent="."]
+script = ExtResource("3_hud")
+
+[node name="Panel" type="Control" parent="MobileHUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="GyroStatus" type="Label" parent="MobileHUD/Panel"]
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 540.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(0.2, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "ACCELEROMETER STATUS"
+[node name="Calibrate" type="Button" parent="MobileHUD/Panel"]
+offset_left = 24.0
+offset_top = 64.0
+offset_right = 190.0
+offset_bottom = 112.0
+text = "CALIBRATE"
+[node name="GyroToggle" type="CheckButton" parent="MobileHUD/Panel"]
+offset_left = 205.0
+offset_top = 64.0
+offset_right = 390.0
+offset_bottom = 112.0
+button_pressed = true
+text = "TILT CONTROL"
+[node name="ThrottleLabel" type="Label" parent="MobileHUD/Panel"]
+offset_left = 24.0
+offset_top = 132.0
+offset_right = 140.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.9, 0.96, 1, 1)
+text = "THROTTLE"
+[node name="Throttle" type="HSlider" parent="MobileHUD/Panel"]
+offset_left = 140.0
+offset_top = 130.0
+offset_right = 390.0
+offset_bottom = 166.0
+min_value = -100.0
+max_value = 100.0
+step = 1.0
+[node name="PitchUp" type="Button" parent="MobileHUD/Panel"]
+offset_left = 980.0
+offset_top = 100.0
+offset_right = 1120.0
+offset_bottom = 154.0
+text = "NOSE UP"
+[node name="PitchDown" type="Button" parent="MobileHUD/Panel"]
+offset_left = 980.0
+offset_top = 166.0
+offset_right = 1120.0
+offset_bottom = 220.0
+text = "NOSE DOWN"
+[node name="RollLeft" type="Button" parent="MobileHUD/Panel"]
+offset_left = 820.0
+offset_top = 132.0
+offset_right = 960.0
+offset_bottom = 186.0
+text = "BANK LEFT"
+[node name="RollRight" type="Button" parent="MobileHUD/Panel"]
+offset_left = 1140.0
+offset_top = 132.0
+offset_right = 1270.0
+offset_bottom = 186.0
+text = "BANK RIGHT"

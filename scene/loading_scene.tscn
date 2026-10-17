@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cvefybvya4v7u"]
+
+[ext_resource type="Script" path="res://script/loading_scene.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://btu0i2dx741oc" path="res://Aeronexis Flight Simulator Over Alpine Skies.png" id="2_uxu0c"]
+
+[node name="Control" type="Control" unique_id=726320245]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=309188026]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uxu0c")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1281739324]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24100001
+anchor_top = 0.78900003
+anchor_right = 0.675
+anchor_bottom = 0.83000004
+offset_left = 0.36798096
+offset_top = -0.2720337
+offset_right = 0.39996338
+offset_bottom = 0.15997314
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StatusLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.241
+anchor_top = 0.836
+anchor_right = 0.675
+anchor_bottom = 0.875
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Preparing flight..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetryButton" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.88
+anchor_right = 0.6
+anchor_bottom = 0.93
+grow_horizontal = 2
+grow_vertical = 0
+text = "Retry"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+timeout = 5.0

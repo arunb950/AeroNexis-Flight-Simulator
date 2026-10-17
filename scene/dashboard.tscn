@@ -1,0 +1,430 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Texture2D" path="res://AeroNexis_Alpine_Hero.png" id="hero"]
+[ext_resource type="Script" path="res://script/dashboard_data_binding.gd" id="dashboard_data"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.015, 0.055, 0.105, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0, 0.55, 0.82, 0.9)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
+bg_color = Color(0.0, 0.48, 0.78, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Dashboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("dashboard_data")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.008, 0.025, 0.055, 1)
+
+[node name="Header" type="ColorRect" parent="."]
+offset_left = 0
+offset_top = 0
+offset_right = 0
+offset_bottom = 94
+anchor_right = 1.0
+color = Color(0.015, 0.07, 0.13, 1)
+
+[node name="Brand" type="Label" parent="."]
+offset_left = 24
+offset_top = 13
+offset_right = 354
+offset_bottom = 51
+text = "AERONEXIS"
+theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0.93, 0.98, 1, 1)
+
+[node name="BrandSubtitle" type="Label" parent="."]
+offset_left = 27
+offset_top = 52
+offset_right = 487
+offset_bottom = 75
+text = "FLIGHT SIMULATOR  /  FLIGHT OPERATIONS"
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.18, 0.75, 0.98, 1)
+
+[node name="HeaderMeta" type="Label" parent="."]
+offset_left = 820
+offset_top = 31
+offset_right = 1250
+offset_bottom = 61
+text = "WORLD OPERATIONS     •     10:24 LOCAL"
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.68, 0.84, 0.98, 1)
+
+[node name="PilotPanel" type="Panel" parent="."]
+offset_left = 18
+offset_top = 110
+offset_right = 300
+offset_bottom = 284
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="PilotEyebrow" type="Label" parent="PilotPanel"]
+offset_left = 14
+offset_top = 12
+offset_right = 259
+offset_bottom = 36
+text = "PILOT PROFILE"
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.15, 0.76, 1, 1)
+
+[node name="PilotName" type="Label" parent="PilotPanel"]
+offset_left = 14
+offset_top = 45
+offset_right = 264
+offset_bottom = 75
+text = "LOADING PROFILE…"
+theme_override_font_sizes/font_size = 21
+theme_override_colors/font_color = Color(0.96, 0.98, 1, 1)
+
+[node name="PilotId" type="Label" parent="PilotPanel"]
+offset_left = 14
+offset_top = 79
+offset_right = 264
+offset_bottom = 101
+text = "GUEST PROFILE"
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.78, 0.88, 0.98, 1)
+
+[node name="PilotRank" type="Label" parent="PilotPanel"]
+offset_left = 14
+offset_top = 112
+offset_right = 264
+offset_bottom = 136
+text = "RANK  •  CADET"
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.75, 0.86, 0.98, 1)
+
+[node name="PilotXP" type="Label" parent="PilotPanel"]
+offset_left = 14
+offset_top = 140
+offset_right = 264
+offset_bottom = 162
+text = "0 FP"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.78, 0.88, 0.98, 1)
+
+[node name="StatsPanel" type="Panel" parent="."]
+offset_left = 18
+offset_top = 296
+offset_right = 300
+offset_bottom = 616
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="StatsTitle" type="Label" parent="StatsPanel"]
+offset_left = 14
+offset_top = 12
+offset_right = 264
+offset_bottom = 36
+text = "FLIGHT STATISTICS"
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.15, 0.76, 1, 1)
+
+[node name="StatFlightsLabel" type="Label" parent="StatsPanel"]
+offset_left = 14
+offset_top = 54
+offset_right = 194
+offset_bottom = 78
+text = "TOTAL FLIGHTS"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.78, 0.88, 0.98, 1)
+
+[node name="StatFlightsValue" type="Label" parent="StatsPanel"]
+offset_left = 205
+offset_top = 54
+offset_right = 260
+offset_bottom = 78
+text = "0"
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.96, 0.98, 1, 1)
+
+[node name="StatTimeLabel" type="Label" parent="StatsPanel"]
+offset_left = 14
+offset_top = 104
+offset_right = 194
+offset_bottom = 128
+text = "FLIGHT TIME"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.78, 0.88, 0.98, 1)
+
+[node name="StatTimeValue" type="Label" parent="StatsPanel"]
+offset_left = 168
+offset_top = 104
+offset_right = 260
+offset_bottom = 128
+text = "0h 00m"
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.96, 0.98, 1, 1)
+
+[node name="StatDistanceLabel" type="Label" parent="StatsPanel"]
+offset_left = 14
+offset_top = 154
+offset_right = 194
+offset_bottom = 178
+text = "DISTANCE FLOWN"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.78, 0.88, 0.98, 1)
+
+[node name="StatDistanceValue" type="Label" parent="StatsPanel"]
+offset_left = 145
+offset_top = 154
+offset_right = 260
+offset_bottom = 178
+text = "0 km"
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.96, 0.98, 1, 1)
+
+[node name="StatLandingLabel" type="Label" parent="StatsPanel"]
+offset_left = 14
+offset_top = 204
+offset_right = 194
+offset_bottom = 228
+text = "LANDING SUCCESS"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.78, 0.88, 0.98, 1)
+
+[node name="StatLandingValue" type="Label" parent="StatsPanel"]
+offset_left = 205
+offset_top = 204
+offset_right = 260
+offset_bottom = 228
+text = "0%"
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.96, 0.98, 1, 1)
+
+[node name="StatsFooter" type="Label" parent="StatsPanel"]
+offset_left = 14
+offset_top = 265
+offset_right = 259
+offset_bottom = 287
+text = "SYSTEM STATUS  /  NOMINAL"
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.18, 0.75, 0.98, 1)
+
+[node name="HeroImage" type="TextureRect" parent="."]
+offset_left = 314
+offset_top = 110
+offset_right = 902
+offset_bottom = 616
+texture = ExtResource("hero")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="HeroShade" type="ColorRect" parent="."]
+offset_left = 314
+offset_top = 470
+offset_right = 902
+offset_bottom = 616
+color = Color(0.005, 0.025, 0.055, 0.84)
+
+[node name="HeroEyebrow" type="Label" parent="."]
+offset_left = 334
+offset_top = 482
+offset_right = 874
+offset_bottom = 504
+text = "FLIGHT OPERATIONS  /  READY FOR DEPARTURE"
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.24, 0.8, 1, 1)
+
+[node name="HeroTitle" type="Label" parent="."]
+offset_left = 334
+offset_top = 510
+offset_right = 644
+offset_bottom = 558
+text = "FLY NOW"
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="HeroDescription" type="Label" parent="."]
+offset_left = 336
+offset_top = 560
+offset_right = 766
+offset_bottom = 588
+text = "Configure your aircraft and explore the skies."
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.82, 0.9, 0.98, 1)
+
+[node name="FlyNowButton" type="Button" parent="."]
+offset_left = 690
+offset_top = 552
+offset_right = 880
+offset_bottom = 600
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+text = "START FLIGHT  →"
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="SettingsCard" type="Panel" parent="."]
+offset_left = 918
+offset_top = 239
+offset_right = 1262
+offset_bottom = 357
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="SettingsCardTag" type="Label" parent="SettingsCard"]
+offset_left = 14
+offset_top = 16
+offset_right = 52
+offset_bottom = 58
+text = "●"
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0.1, 0.75, 1, 1)
+
+[node name="SettingsCardTitle" type="Label" parent="SettingsCard"]
+offset_left = 60
+offset_top = 15
+offset_right = 325
+offset_bottom = 43
+text = "SIMULATION SETTINGS"
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.95, 0.98, 1, 1)
+
+[node name="SettingsCardDesc" type="Label" parent="SettingsCard"]
+offset_left = 60
+offset_top = 48
+offset_right = 320
+offset_bottom = 90
+text = "Weather, graphics and controls."
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.72, 0.84, 0.96, 1)
+
+[node name="SettingsCardArrow" type="Label" parent="SettingsCard"]
+offset_left = 304
+offset_top = 42
+offset_right = 329
+offset_bottom = 77
+text = "›"
+theme_override_font_sizes/font_size = 27
+theme_override_colors/font_color = Color(0.22, 0.78, 1, 1)
+
+[node name="ProfileCard" type="Panel" parent="."]
+offset_left = 918
+offset_top = 368
+offset_right = 1262
+offset_bottom = 486
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="ProfileCardTag" type="Label" parent="ProfileCard"]
+offset_left = 14
+offset_top = 16
+offset_right = 52
+offset_bottom = 58
+text = "●"
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0.1, 0.75, 1, 1)
+
+[node name="ProfileCardTitle" type="Label" parent="ProfileCard"]
+offset_left = 60
+offset_top = 15
+offset_right = 325
+offset_bottom = 43
+text = "PROFILE & PROGRESS"
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.95, 0.98, 1, 1)
+
+[node name="ProfileCardDesc" type="Label" parent="ProfileCard"]
+offset_left = 60
+offset_top = 48
+offset_right = 320
+offset_bottom = 90
+text = "View pilot rank and achievements."
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.72, 0.84, 0.96, 1)
+
+[node name="ProfileCardArrow" type="Label" parent="ProfileCard"]
+offset_left = 304
+offset_top = 42
+offset_right = 329
+offset_bottom = 77
+text = "›"
+theme_override_font_sizes/font_size = 27
+theme_override_colors/font_color = Color(0.22, 0.78, 1, 1)
+
+[node name="Footer" type="ColorRect" parent="."]
+offset_left = 0
+offset_top = 632
+offset_right = 0
+offset_bottom = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.012, 0.045, 0.085, 1)
+
+[node name="FooterTagline" type="Label" parent="."]
+offset_left = 22
+offset_top = 650
+offset_right = 452
+offset_bottom = 676
+text = "AERONEXIS   /   YOUR JOURNEY STARTS HERE"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.58, 0.74, 0.91, 1)
+
+[node name="NavDashboard" type="Label" parent="."]
+offset_left = 500
+offset_top = 650
+offset_right = 640
+offset_bottom = 680
+text = "⌂  DASHBOARD"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.12, 0.75, 1, 1)
+
+[node name="NavFly" type="Label" parent="."]
+offset_left = 655
+offset_top = 650
+offset_right = 745
+offset_bottom = 680
+text = "✈  FLY"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.78, 0.88, 0.98, 1)
+
+[node name="NavWorld" type="Label" parent="."]
+offset_left = 770
+offset_top = 650
+offset_right = 910
+offset_bottom = 680
+text = "◎  WORLD MAP"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.78, 0.88, 0.98, 1)
+
+[node name="NavAchievements" type="Label" parent="."]
+offset_left = 935
+offset_top = 650
+offset_right = 1095
+offset_bottom = 680
+text = "★  ACHIEVEMENTS"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.78, 0.88, 0.98, 1)
+
+[node name="NavExit" type="Label" parent="."]
+offset_left = 1140
+offset_top = 650
+offset_right = 1240
+offset_bottom = 680
+text = "EXIT  ↗"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.78, 0.88, 0.98, 1)

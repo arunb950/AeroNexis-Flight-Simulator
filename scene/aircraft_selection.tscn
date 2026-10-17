@@ -1,0 +1,468 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Texture2D" path="res://AeroNexis_Alpine_Hero.png" id="hero"]
+[ext_resource type="Script" path="res://script/aircraft_selection.gd" id="logic"]
+
+[sub_resource type="StyleBoxFlat" id="panel"]
+bg_color = Color(0.018, 0.065, 0.105, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.08, 0.35, 0.48, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="tile"]
+bg_color = Color(0.025, 0.085, 0.13, 0.9)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.08, 0.28, 0.38, 0.8)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="primary"]
+bg_color = Color(0.0, 0.55, 0.78, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="AircraftSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("logic")
+
+[node name="Background" type="ColorRect" parent="."]
+mouse_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.006, 0.025, 0.045, 1)
+
+[node name="Header" type="ColorRect" parent="."]
+mouse_filter = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+color = Color(0.012, 0.055, 0.085, 1)
+
+[node name="Brand" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 11.0
+offset_right = 270.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 25
+theme_override_colors/font_color = Color(0.94, 0.98, 1, 1)
+text = "AERONEXIS"
+
+[node name="BrandSub" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 40.0
+offset_right = 310.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.12, 0.72, 0.91, 1)
+text = "FLIGHT OPERATIONS  /  FLEET"
+
+[node name="AircraftTab" type="Panel" parent="."]
+offset_left = 290.0
+offset_top = 10.0
+offset_right = 455.0
+offset_bottom = 56.0
+theme_override_styles/panel = SubResource("primary")
+
+[node name="AircraftTabText" type="Label" parent="AircraftTab"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 10.0
+offset_right = 150.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "AIRCRAFT"
+
+[node name="LiveriesTab" type="Label" parent="."]
+offset_left = 480.0
+offset_top = 20.0
+offset_right = 610.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.63, 0.76, 0.85, 1)
+text = "LIVERIES"
+
+[node name="MaintenanceTab" type="Label" parent="."]
+offset_left = 635.0
+offset_top = 20.0
+offset_right = 790.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.63, 0.76, 0.85, 1)
+text = "FLIGHT SYSTEMS"
+
+[node name="SearchBox" type="Panel" parent="."]
+offset_left = 1000.0
+offset_top = 13.0
+offset_right = 1248.0
+offset_bottom = 51.0
+theme_override_styles/panel = SubResource("panel")
+
+[node name="SearchLabel" type="Label" parent="SearchBox"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 230.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.62, 0.78, 0.88, 1)
+text = "⌕   SEARCH AIRCRAFT"
+
+[node name="CategoryBar" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 64.0
+offset_right = 1280.0
+offset_bottom = 112.0
+color = Color(0.0, 0.43, 0.62, 1)
+
+[node name="CategoryAll" type="Panel" parent="CategoryBar"]
+offset_left = 30.0
+offset_top = 7.0
+offset_right = 155.0
+offset_bottom = 41.0
+theme_override_styles/panel = SubResource("primary")
+
+[node name="CategoryAllText" type="Label" parent="CategoryBar/CategoryAll"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 6.0
+offset_right = 115.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "ALL AIRCRAFT"
+
+[node name="CategoryTrainer" type="Label" parent="CategoryBar"]
+offset_left = 180.0
+offset_top = 14.0
+offset_right = 300.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.94, 0.98, 1, 1)
+text = "TRAINERS"
+
+[node name="CategoryTurboprop" type="Label" parent="CategoryBar"]
+offset_left = 330.0
+offset_top = 14.0
+offset_right = 475.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.94, 0.98, 1, 1)
+text = "TURBOPROPS"
+
+[node name="CategoryAirliner" type="Label" parent="CategoryBar"]
+offset_left = 505.0
+offset_top = 14.0
+offset_right = 640.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.94, 0.98, 1, 1)
+text = "AIRLINERS"
+
+[node name="PageCaption" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 124.0
+offset_right = 520.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 17
+theme_override_colors/font_color = Color(0.88, 0.95, 1, 1)
+text = "SELECT YOUR AIRCRAFT"
+
+[node name="FleetCount" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 151.0
+offset_right = 520.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.35, 0.66, 0.78, 1)
+text = "AERONEXIS FLEET  •  CHOOSE A FLIGHT DECK"
+
+[node name="AircraftChoices" type="GridContainer" parent="."]
+offset_left = 28.0
+offset_top = 183.0
+offset_right = 608.0
+offset_bottom = 600.0
+columns = 2
+theme_override_constants/h_separation = 14
+theme_override_constants/v_separation = 14
+
+[node name="CessnaCard" type="Panel" parent="AircraftChoices"]
+custom_minimum_size = Vector2(278, 190)
+layout_mode = 2
+theme_override_styles/panel = SubResource("tile")
+
+[node name="CessnaAccent" type="ColorRect" parent="AircraftChoices/CessnaCard"]
+offset_right = 5.0
+offset_bottom = 190.0
+color = Color(0.0, 0.68, 0.91, 1)
+
+[node name="CessnaIcon" type="Label" parent="AircraftChoices/CessnaCard"]
+offset_left = 18.0
+offset_top = 12.0
+offset_right = 250.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 43
+theme_override_colors/font_color = Color(0.22, 0.78, 0.96, 1)
+text = "✈"
+
+[node name="CessnaName" type="Label" parent="AircraftChoices/CessnaCard"]
+offset_left = 18.0
+offset_top = 69.0
+offset_right = 250.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.95, 0.98, 1, 1)
+text = "CESSNA 172"
+
+[node name="CessnaInfo" type="Label" parent="AircraftChoices/CessnaCard"]
+offset_left = 18.0
+offset_top = 99.0
+offset_right = 254.0
+offset_bottom = 137.0
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.64, 0.79, 0.87, 1)
+text = "SINGLE ENGINE  •  TRAINER\nIdeal for learning the basics."
+
+[node name="CessnaButton" type="Button" parent="AircraftChoices/CessnaCard"]
+offset_left = 16.0
+offset_top = 148.0
+offset_right = 260.0
+offset_bottom = 178.0
+theme_override_styles/normal = SubResource("primary")
+theme_override_font_sizes/font_size = 12
+text = "✓ SELECTED"
+
+[node name="KingAirCard" type="Panel" parent="AircraftChoices"]
+custom_minimum_size = Vector2(278, 190)
+layout_mode = 2
+theme_override_styles/panel = SubResource("tile")
+
+[node name="KingAirIcon" type="Label" parent="AircraftChoices/KingAirCard"]
+offset_left = 18.0
+offset_top = 12.0
+offset_right = 250.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 43
+theme_override_colors/font_color = Color(0.22, 0.78, 0.96, 1)
+text = "✈"
+
+[node name="KingAirName" type="Label" parent="AircraftChoices/KingAirCard"]
+offset_left = 18.0
+offset_top = 69.0
+offset_right = 260.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 17
+theme_override_colors/font_color = Color(0.95, 0.98, 1, 1)
+text = "BEECHCRAFT KING AIR"
+
+[node name="KingAirInfo" type="Label" parent="AircraftChoices/KingAirCard"]
+offset_left = 18.0
+offset_top = 99.0
+offset_right = 254.0
+offset_bottom = 137.0
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.64, 0.79, 0.87, 1)
+text = "TWIN TURBOPROP  •  REGIONAL\nMade for mountain routes."
+
+[node name="KingAirButton" type="Button" parent="AircraftChoices/KingAirCard"]
+offset_left = 16.0
+offset_top = 148.0
+offset_right = 260.0
+offset_bottom = 178.0
+theme_override_styles/normal = SubResource("primary")
+theme_override_font_sizes/font_size = 12
+text = "SELECT AIRCRAFT"
+
+[node name="AirlinerCard" type="Panel" parent="AircraftChoices"]
+custom_minimum_size = Vector2(278, 190)
+layout_mode = 2
+theme_override_styles/panel = SubResource("tile")
+
+[node name="AirlinerIcon" type="Label" parent="AircraftChoices/AirlinerCard"]
+offset_left = 18.0
+offset_top = 12.0
+offset_right = 250.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 43
+theme_override_colors/font_color = Color(0.22, 0.78, 0.96, 1)
+text = "✈"
+
+[node name="AirlinerName" type="Label" parent="AircraftChoices/AirlinerCard"]
+offset_left = 18.0
+offset_top = 69.0
+offset_right = 250.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.95, 0.98, 1, 1)
+text = "AIRBUS A320"
+
+[node name="AirlinerInfo" type="Label" parent="AircraftChoices/AirlinerCard"]
+offset_left = 18.0
+offset_top = 99.0
+offset_right = 254.0
+offset_bottom = 137.0
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.64, 0.79, 0.87, 1)
+text = "COMMERCIAL JET  •  AIRLINER\nHigh-speed, high-altitude routes."
+
+[node name="AirlinerButton" type="Button" parent="AircraftChoices/AirlinerCard"]
+offset_left = 16.0
+offset_top = 148.0
+offset_right = 260.0
+offset_bottom = 178.0
+theme_override_styles/normal = SubResource("primary")
+theme_override_font_sizes/font_size = 12
+text = "SELECT AIRCRAFT"
+
+[node name="DetailPanel" type="Panel" parent="."]
+offset_left = 630.0
+offset_top = 124.0
+offset_right = 1252.0
+offset_bottom = 600.0
+theme_override_styles/panel = SubResource("panel")
+
+[node name="DetailBackdrop" type="TextureRect" parent="DetailPanel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 620.0
+offset_bottom = 292.0
+expand_mode = 1
+stretch_mode = 6
+texture = ExtResource("hero")
+modulate = Color(0.85, 0.94, 1, 0.72)
+
+[node name="DetailShade" type="ColorRect" parent="DetailPanel"]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 620.0
+offset_bottom = 292.0
+color = Color(0.004, 0.025, 0.045, 0.35)
+
+[node name="SelectedAircraftTitle" type="Label" parent="DetailPanel"]
+offset_left = 22.0
+offset_top = 15.0
+offset_right = 580.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "CESSNA 172"
+
+[node name="DetailSubtitle" type="Label" parent="DetailPanel"]
+offset_left = 24.0
+offset_top = 49.0
+offset_right = 580.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.66, 0.87, 0.95, 1)
+text = "FLIGHT DECK PREVIEW  /  DEFAULT LIVERY"
+
+[node name="DetailDivider" type="ColorRect" parent="DetailPanel"]
+offset_left = 22.0
+offset_top = 302.0
+offset_right = 600.0
+offset_bottom = 304.0
+color = Color(0.0, 0.55, 0.78, 0.9)
+
+[node name="SpecsTitle" type="Label" parent="DetailPanel"]
+offset_left = 22.0
+offset_top = 316.0
+offset_right = 300.0
+offset_bottom = 340.0
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.16, 0.75, 0.95, 1)
+text = "AIRCRAFT SPECIFICATIONS"
+
+[node name="SpecsLeft" type="Label" parent="DetailPanel"]
+offset_left = 22.0
+offset_top = 350.0
+offset_right = 280.0
+offset_bottom = 452.0
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.86, 0.93, 0.97, 1)
+text = "CLASS          Trainer\nENGINES        Single piston\nWINGSPAN       11.0 m\nCREW           1–2"
+
+[node name="SpecsRight" type="Label" parent="DetailPanel"]
+offset_left = 315.0
+offset_top = 350.0
+offset_right = 590.0
+offset_bottom = 452.0
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.86, 0.93, 0.97, 1)
+text = "SEATS          4\nCRUISE         122 kt\nRANGE          640 nm\nROLE           General aviation"
+
+[node name="SelectionSummary" type="Panel" parent="."]
+offset_left = 28.0
+offset_top = 614.0
+offset_right = 1252.0
+offset_bottom = 662.0
+theme_override_styles/panel = SubResource("panel")
+
+[node name="SummaryTitle" type="Label" parent="SelectionSummary"]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 190.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.16, 0.75, 0.95, 1)
+text = "SELECTED AIRCRAFT"
+
+[node name="SelectedAircraft" type="Label" parent="SelectionSummary"]
+offset_left = 185.0
+offset_top = 9.0
+offset_right = 475.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 17
+theme_override_colors/font_color = Color(0.96, 0.99, 1, 1)
+text = "CESSNA 172"
+
+[node name="StatusLabel" type="Label" parent="."]
+offset_left = 510.0
+offset_top = 674.0
+offset_right = 850.0
+offset_bottom = 703.0
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.48, 0.75, 0.86, 1)
+text = "Choose an aircraft to continue."
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 28.0
+offset_top = 670.0
+offset_right = 180.0
+offset_bottom = 710.0
+theme_override_styles/normal = SubResource("panel")
+theme_override_font_sizes/font_size = 14
+text = "←  DASHBOARD"
+
+[node name="ContinueButton" type="Button" parent="."]
+offset_left = 1000.0
+offset_top = 664.0
+offset_right = 1252.0
+offset_bottom = 714.0
+theme_override_styles/normal = SubResource("primary")
+theme_override_font_sizes/font_size = 15
+text = "CONFIRM AIRCRAFT  →"
