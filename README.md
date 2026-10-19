@@ -61,11 +61,11 @@ Screenshots will be added as playable features become available.
 
 Our development will progress through several milestones.
 
-- [ ] **Phase 1 — Foundation**
-  - [ ] Set up the Godot project architecture.
-  - [ ] Create the initial aircraft model and flight scene.
-  - [ ] Implement basic flight physics.
-  - [ ] Add a runway and a chase camera.
+- [x] **Phase 1 — Foundation**
+  - [x] Set up the Godot project architecture.
+  - [x] Create the initial aircraft model and flight scene.
+  - [x] Implement basic flight physics.
+  - [x] Add a runway and a chase camera.
 
 - [ ] **Phase 2 — Flight Experience**
   - [ ] Implement pitch, roll, yaw, and throttle controls.
